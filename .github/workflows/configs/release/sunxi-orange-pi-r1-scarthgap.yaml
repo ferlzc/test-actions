@@ -1,0 +1,85 @@
+header:
+    version: 16
+_source_dir: .
+repos:
+    meta-sunxi:
+        commit: d5214c790e0488bcff392c9f1d3dfe5c4de21a34
+        patches:
+            wks-root-label:
+                path: patches/meta-sunxi/0001-wks-root-label.patch
+                repo: meta-pantavisor
+        path: layers/meta-sunxi
+        url: https://github.com/linux-sunxi/meta-sunxi
+    meta-arm:
+        commit: 8e0f8af90fefb03f08cd2228cde7a89902a6b37c
+        layers:
+            meta-arm:
+            meta-arm-toolchain:
+        path: layers/meta-arm
+        url: git://git.yoctoproject.org/meta-arm
+    meta-pantavisor:
+    poky:
+        url: https://github.com/yoctoproject/poky.git
+        path: layers/poky
+        layers:
+            meta:
+            meta-poky:
+        patches:
+            fit-image-multiconfig:
+                path: patches/poky/0001-fit-image-multiconfig.scarthgap.patch
+                repo: meta-pantavisor
+            update-rc-initscripts:
+                path: patches/poky/update-rc.patch
+                repo: meta-pantavisor
+        commit: 9ce8f26d37c2e3e0030fd1f36f5c54209c269a05
+    meta-virtualization:
+        commit: af1db2042caf8021d767dce1b26c08b59b96f3d1
+        path: layers/meta-virtualization
+        url: git://git.yoctoproject.org/meta-virtualization
+    meta-openembedded:
+        commit: c29a18fa39ede952f3f6108ec007c1906e2d9a0d
+        layers:
+            meta-filesystems:
+            meta-networking:
+            meta-oe:
+            meta-python:
+        path: layers/meta-openembedded
+        url: https://github.com/openembedded/meta-openembedded.git
+local_conf_header:
+    platform-sunxi: |
+        PV_UBOOT_AUTOFDT = "1"
+    rm_work: |
+        INHERIT += "rm_work"
+    package_management: |
+        PACKAGE_CLASSES = "package_rpm"
+    panta-base: |
+        TMPDIR = "${TOPDIR}/tmp-${DISTRO_CODENAME}"
+    pantavisor-system: |
+        DISTRO_FEATURES:append = " pantavisor-system "
+        PANTAVISOR_FEATURES:append = " dm-crypt"
+        PANTAVISOR_FEATURES:append = " dm-verity"
+        PANTAVISOR_FEATURES:append = " autogrow"
+        INITRAMFS_IMAGE = "pantavisor-initramfs"
+    pantavisor-runc: |
+        PANTAVISOR_FEATURES:append = " runc"
+    pantavisor-tailscale: |
+        PANTAVISOR_FEATURES:append = " tailscale"
+    pantavisor-debug: |
+        PANTAVISOR_FEATURES:append = " debug"
+    __menu_config_locals: ''
+    __menu_config_vars: |-
+        PVROOT_IMAGE = "yes"
+        PVROOT_IMAGE_BSP = "core-image-base"
+        EXTRA_IMAGE_FEATURES:append = " debug-tweaks"
+        INHERIT += "rm_work"
+machine: orange-pi-r1
+target:
+- pantavisor-remix
+build_system: oe
+distro: panta-distro
+env:
+    PVROOT_IMAGE_BSP:
+    PV_BOOT_OEMARGS:
+defaults:
+    repos:
+        branch: scarthgap
