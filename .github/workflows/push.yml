@@ -1,6 +1,10 @@
 name: PUSH master
 on:
   push:
+    paths:
+      - '**'
+      - '.github/**'
+      - '.github/configs/**'
 jobs:
 
   call-deploy-rasp:

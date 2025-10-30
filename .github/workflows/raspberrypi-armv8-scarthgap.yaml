@@ -2,10 +2,7 @@ name: 'Push - Raspberry Pi ARMv8 Scarthgap'
 
 on:
   workflow_call:
-    paths:
-      - '**'
-      - '.github/**'
-      - '.github/configs/**'
+
 
 jobs:
 
