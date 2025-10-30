@@ -2,5 +2,11 @@ name: PUSH master
 on:
   push:
 jobs:
-  call-deploy:
+
+  call-deploy-rasp:
+    name: call 1
+    uses: ./.github/workflows/onpush/raspberrypi-armv8-scarthgap.yml
+
+  call-deploy-rasp2:
+    name: call 2
     uses: ./.github/workflows/onpush/raspberrypi-armv8-scarthgap.yml

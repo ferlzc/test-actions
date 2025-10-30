@@ -1,7 +1,7 @@
 name: 'Push - Raspberry Pi ARMv8 Scarthgap'
 
 on:
-  push:
+  workflow_call:
     paths:
       - '**'
       - '.github/**'
