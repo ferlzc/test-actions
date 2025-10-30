@@ -1,0 +1,6 @@
+name: PUSH master
+on:
+  push:
+jobs:
+  call-deploy:
+    uses: ./.github/workflows/onpush/raspberrypi-armv8-scarthgap.yml
