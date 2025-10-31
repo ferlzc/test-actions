@@ -2,8 +2,7 @@ name: PUSH master
 on:
   push:
     paths:
-      - '*'
-      - '.github/**'
+      - '**'
       - '.github/configs/**'
 jobs:
 
@@ -14,6 +13,4 @@ jobs:
   call-deploy-2:
     name: call 2
     uses: ./.github/workflows/raspberrypi-armv8-scarthgap.yml
-  
-  build-raspberrypi-armv8-scarthgap:
-    uses: ./.github/workflows/buildkas.yaml
+
