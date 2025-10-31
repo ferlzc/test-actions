@@ -10,5 +10,5 @@ jobs:
     uses: ./.github/workflows/build-pantavisor.yaml
     with:
       # meta-pantavisor
-      configs: .github/configs/shared-vols.yaml:.github/configs/release/raspberrypi-armv8-scarthgap.yaml
+      configs: .github/configs/shared-vols.yaml:.github/configs/release/buildkas.yaml
       name: raspberrypi-armv8
