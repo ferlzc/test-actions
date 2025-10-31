@@ -11,8 +11,8 @@ jobs:
 
   call-deploy-rasp:
     name: call 1
-    uses: .github/workflows/raspberrypi-armv8-scarthgap.yaml
+    uses: .github/workflows/raspberrypi-armv8-scarthgap.yaml@${{ github.ref }}
 
   call-deploy-rasp2:
     name: call 2
-    uses: .github/workflows/raspberrypi-armv8-scarthgap.yml
+    uses: .github/workflows/raspberrypi-armv8-scarthgap.yml@${{ github.ref }}
