@@ -7,7 +7,7 @@ on:
 jobs:
 
   build-raspberrypi-armv8-scarthgap:
-    uses: ./.github/workflows/build-pantavisor.yaml
+    uses: ./.github/workflows/raspberrypi-armv8-scarthgap.yaml
     with:
       # meta-pantavisor
       configs: .github/configs/shared-vols.yaml:.github/configs/release/buildkas.yaml
