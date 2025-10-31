@@ -1,10 +1,8 @@
 name: PUSH master
 on:
   push:
-    branches:
-     - "*"
     paths:
-      - '**'
+      - '*'
       - '.github/**'
       - '.github/configs/**'
 jobs:
