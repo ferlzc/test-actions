@@ -1,6 +1,8 @@
 name: PUSH master
 on:
   push:
+    branches:
+     - "*"
     paths:
       - '**'
       - '.github/**'
