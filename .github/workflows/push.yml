@@ -7,4 +7,4 @@ on:
 jobs:
 
   build-raspberrypi-armv8-scarthgap:
-    uses: ./.github/workflows/raspberrypi-armv8-scarthgap.yaml
+    uses: ./.github/workflows/buildkas.yaml
